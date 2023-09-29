@@ -1,0 +1,33 @@
+#include<iostream>
+#include<string>
+#include<cctype>
+using namespace std;
+string przeksztalc(string nowy);
+int main()
+{
+	string sms;
+	while(getline(cin,sms)) 
+	{
+		cout<<przeksztalc(sms)<<endl;
+	}
+	
+	cin.ignore();
+	cin.get();
+}
+string przeksztalc(string nowy)
+{
+	for(unsigned int i=0;i<nowy.size();i++)
+	{
+		if(nowy[i]==' ')
+		{
+		        nowy.erase(i,1);
+		        nowy[i]= toupper(nowy[i]);
+		}
+		if(nowy[i]=='.')
+		{
+		        nowy[i+1]= toupper(nowy[i+1]);
+		}
+	}
+	
+	return nowy;
+}
